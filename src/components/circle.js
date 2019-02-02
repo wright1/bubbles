@@ -1,5 +1,6 @@
 import React from "react";
 
-const circle = () => {
-    <div></div>
+const circle = (props) => {
+    <a href="#" onClick={props.onClick()}>
+    {props.answer}</a>
 }

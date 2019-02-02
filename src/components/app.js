@@ -5,11 +5,16 @@ import { getQuizData } from "../utils/getData";
 export default class App extends React.Component {
 
     state = {
-        data: {}
+        quizData: {},
+        answerData: []
     }
 
     componentDidMount () {
-        getQuizData().then(data => console.log (data))
+        getQuizData()
+        .then(data => {
+            data.map(() =>{})
+
+        })
     }
 
     render () {
