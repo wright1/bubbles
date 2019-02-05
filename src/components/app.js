@@ -1,6 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
+import { Circle } from "./circle";
+import "../../public/circle.css"
+
 
 export default class App extends React.Component {
 
@@ -12,15 +15,25 @@ export default class App extends React.Component {
     componentDidMount () {
         getQuizData()
         .then(data => {
-            data.map(() =>{})
+
+            this.setState({quizData: data.clues});
 
         })
+        
     }
 
     render () {
+        
+
+
 
         return (
-            <div>Hello</div>
+            <div>
+                <p>Hello</p>
+                <Circle text="yes"/>
+
+            </div>
+
         )
     }
 }

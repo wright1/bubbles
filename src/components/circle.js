@@ -1,6 +1,12 @@
 import React from "react";
 
-const circle = (props) => {
-    <a href="#" onClick={props.onClick()}>
-    {props.answer}</a>
+
+export const Circle = (props) => {
+    return(
+    <div className="circle">
+
+    <a href="#">{props.text}</a>
+    
+    </div>
+    )
 }

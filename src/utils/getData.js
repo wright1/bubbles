@@ -11,7 +11,7 @@ const checkResponse = response => {
 
 export const getQuizData = () =>{
 
-    return fetch(`http://jservice.io/api/random?count=10`)
+    return fetch(`http://jservice.io/api/category?id=105`)
     .then(checkResponse)
     .catch( err =>{
         throw new Error(`Fetch getQuizData failed ${err}`)
