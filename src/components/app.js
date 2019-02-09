@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
-import { Circle } from "./circle";
+import { Bubble } from "./circle";
 import "../../public/circle.css"
 
 
@@ -29,8 +29,8 @@ export default class App extends React.Component {
 
         return (
             <div>
-                <p>Hello</p>
-                <Circle text="yes"/>
+        
+                <Bubble />
 
             </div>
 
