@@ -11,7 +11,8 @@ export const Bubble = (props) => {
     <svg width="6.5em" height="6.5em">
         <circle cx="50" cy="50" r={props.radius} 
          opacity={props.opacity}
-         fill={props.fill}></circle>
+         fill={props.fill}
+         onClick={ () => props.onClick(props.title)} ></circle>
         <text x="50%" y="50%" textAnchor="middle">{props.text}</text>
     </svg>
     
