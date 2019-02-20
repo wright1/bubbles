@@ -12,6 +12,11 @@ export default class App extends React.Component {
         quizData: {},
         newQuestions: []
     }
+    checkAnswer = (the_answer) =>{
+        console.log(the_answer)
+        the_answer == this.state.newQuestions[0].answer ? console.log("you're right") : console.log("try again");
+   
+    }
 
     componentDidMount () {
         getQuizData()
@@ -57,10 +62,11 @@ export default class App extends React.Component {
             {this.state.newQuestions.map((item)=>{
                 return(
                 <Bubble               
-                 text ={item.answer} key={ item.id} />
+                 text ={item.answer} key={ item.id}
+                 onClick ={this.checkAnswer} />
             );
                 })}
-                <Bubble />
+            
 
             </div>
 

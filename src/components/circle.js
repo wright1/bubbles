@@ -12,7 +12,7 @@ export const Bubble = (props) => {
         <circle cx="50" cy="50" r="3em" 
          opacity={props.opacity}
          fill={props.fill}
-         onClick={ () => props.onClick(props.title)} ></circle>
+         onClick={ () => props.onClick(props.text)} ></circle>
         <text x="50%" y="50%" textAnchor="middle">{props.text}</text>
     </svg>
     
