@@ -17,7 +17,7 @@ export default class App extends React.Component {
         .then(data => {
             
             this.setState({quizData: data.clues});
-            this.getQuizQuestions();
+            this.newQuestions();
 
         })
         
@@ -25,16 +25,16 @@ export default class App extends React.Component {
     }
     newQuestions = () =>{
         
-
-            const apiArr = this.state.quizData; // shuffles the api array
-            for(let i = (apiArr.length)-1; i>1; i--) {
+             console.log(this.state.quizData)
+            const apiArr = this.state.quizData.filter((ele)=>{ return ele.answer.length == 3})
+             console.log(apiArr)
+            for(let i = (apiArr.length)-1; i>1; i--) {// shuffles the api array
                 const j = Math.floor(Math.random() * (i + 1));
                 [apiArr[i], apiArr[j]] = [apiArr[j], apiArr[i]]; 
             }
             this.setState({quizData: apiArr})
-            const questionArr = this.state.quizData.slice(0,31);//selects the top 30 object in the api array
+            const questionArr = this.state.quizData.slice(0,30);//selects the top 30 object in the api array
             this.setState({newQuestions: questionArr})
-            console.log(this.state.newQuestions)
     
     }
 
@@ -46,6 +46,16 @@ export default class App extends React.Component {
         return (
             <div>
         
+            {this.state.newQuestions.map((item)=>{
+                return(
+                <Bubble
+                width={item.answer.length +1+ "em"}
+                height={ item.answer.length+1+ "em"} 
+                radius ={item.answer.length +"em"}
+                 text ={item.answer} key={ item.id} />
+            );
+
+                })}
                 <Bubble />
 
             </div>
