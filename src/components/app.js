@@ -2,7 +2,8 @@ import React from "react";
 import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
 import { Bubble } from "./circle";
-import "../../public/circle.css"
+import "../../public/circle.css";
+import { Question } from "./question.js"
 
 
 export default class App extends React.Component {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
             
             this.setState({quizData: data.clues});
             this.newQuestions();
+            console.log(this.state.newQuestions)
 
         })
         
@@ -25,7 +27,7 @@ export default class App extends React.Component {
     }
     newQuestions = () =>{
         
-             console.log(this.state.quizData)
+            //array filtered- only answers that are 3 characters long remain
             const apiArr = this.state.quizData.filter((ele)=>{ return ele.answer.length == 3})
              console.log(apiArr)
             for(let i = (apiArr.length)-1; i>1; i--) {// shuffles the api array
@@ -35,26 +37,28 @@ export default class App extends React.Component {
             this.setState({quizData: apiArr})
             const questionArr = this.state.quizData.slice(0,30);//selects the top 30 object in the api array
             this.setState({newQuestions: questionArr})
+            console.log(this.state.newQuestions[0].question)
+            
     
     }
 
     render () {
         
-
+    
 
 
         return (
             <div>
+                
+                 <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
+
+                
         
             {this.state.newQuestions.map((item)=>{
                 return(
-                <Bubble
-                width={item.answer.length +1+ "em"}
-                height={ item.answer.length+1+ "em"} 
-                radius ={item.answer.length +"em"}
+                <Bubble               
                  text ={item.answer} key={ item.id} />
             );
-
                 })}
                 <Bubble />
 
