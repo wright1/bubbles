@@ -2,7 +2,8 @@ import React from "react";
 import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
 import { Bubble } from "./circle";
-import "../../public/circle.css"
+import "../../public/circle.css";
+import { Sidebar } from "./sidebar.js";
 
 
 export default class App extends React.Component {
@@ -45,6 +46,11 @@ export default class App extends React.Component {
 
         return (
             <div>
+                <Sidebar
+                 seconds={"8"}>
+                </Sidebar>
+
+                {/* <StyledSidebar /> */}
         
             {this.state.newQuestions.map((item)=>{
                 return(
