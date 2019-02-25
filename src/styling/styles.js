@@ -5,7 +5,7 @@ width: 20vw;
 border-right: solid 1px #C5BECE;
 div { 
     display: flex;
-    border: solid 0.5em #8F79C5;
+    border: solid 0.4em #8F79C5;
     border-radius: 50%;
     margin: auto;
     width: 15vw;

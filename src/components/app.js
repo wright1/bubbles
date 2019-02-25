@@ -4,6 +4,7 @@ import { getQuizData } from "../utils/getData";
 import { Bubble } from "./circle";
 import "../../public/circle.css";
 import { Sidebar } from "./sidebar.js";
+import { Title } from "./title.js";
 
 
 export default class App extends React.Component {
@@ -46,6 +47,10 @@ export default class App extends React.Component {
 
         return (
             <div>
+
+                <Title />
+
+
                 <Sidebar
                  seconds={"8"}
                  score={ 0 }>
