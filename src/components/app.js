@@ -47,7 +47,8 @@ export default class App extends React.Component {
         return (
             <div>
                 <Sidebar
-                 seconds={"8"}>
+                 seconds={"8"}
+                 score={ 0 }>
                 </Sidebar>
 
                 {/* <StyledSidebar /> */}

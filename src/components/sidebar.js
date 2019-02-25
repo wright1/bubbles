@@ -7,11 +7,11 @@ export const Sidebar = (props) =>{
     return(
 
         < StyledSidebar>
-            <p>START</p>
-            <p>{props.seconds}</p>
-            <p>TIME</p>
-            <p>{props.score}</p>
-            <p>SCORE</p>
+           <div> START</div>
+            <div>{props.seconds}</div>
+            
+            <div>{props.score}</div>
+            
         </StyledSidebar>
     )
 }
