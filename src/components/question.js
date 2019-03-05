@@ -1,6 +1,5 @@
 import React from "react";
 
-<<<<<<< HEAD
 export const Question = (props) =>{
 
     return(
@@ -9,14 +8,3 @@ export const Question = (props) =>{
         </div>
     )
 }
-=======
-
-export const Question = (props) =>{
-    
-    return(
-    <div>
-        {props.question}
-    </div>
-    )
-} 
->>>>>>> staging

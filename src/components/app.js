@@ -3,11 +3,8 @@ import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
 import { Bubble } from "./circle";
 import "../../public/circle.css";
-<<<<<<< HEAD
-=======
 import { Sidebar } from "./sidebar.js";
 import { Title } from "./title.js";
->>>>>>> staging
 import { Question } from "./question.js"
 
 
@@ -59,25 +56,10 @@ export default class App extends React.Component {
 
         return (
             <div>
-<<<<<<< HEAD
                 
                  <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
 
                 
-=======
-
-                <Title />
-
-                <Question  question={ this.state.newQuestions[0]['question']} />
-
-
-                <Sidebar
-                 seconds={"8"}
-                 score={ 0 }>
-                </Sidebar>
-
-                {/* <StyledSidebar /> */}
->>>>>>> staging
         
             {this.state.newQuestions.map((item)=>{
                 return(
