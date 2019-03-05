@@ -5,6 +5,7 @@ import { Bubble } from "./circle";
 import "../../public/circle.css";
 import { Sidebar } from "./sidebar.js";
 import { Title } from "./title.js";
+import { Question } from "./question.js"
 
 
 export default class App extends React.Component {
@@ -49,6 +50,8 @@ export default class App extends React.Component {
             <div>
 
                 <Title />
+
+                <Question  question={ this.state.newQuestions[0]['question']} />
 
 
                 <Sidebar

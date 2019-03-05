@@ -18,7 +18,17 @@ div {
 }
 `;
 
+const StyledTitle = styled.div`
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+font-family: "Baloo Bhai", sans-serif;
+font-size: 4em;
+text-align: center;
+color: #9FA0C3;
+
+`
+
 export {
-    StyledSidebar
+    StyledSidebar,
+    StyledTitle
 
 }
