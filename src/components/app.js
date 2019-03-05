@@ -51,7 +51,7 @@ export default class App extends React.Component {
 
                 <Title />
 
-                <Question  question={ this.state.newQuestions[0]['question']} />
+                
 
 
                 <Sidebar
