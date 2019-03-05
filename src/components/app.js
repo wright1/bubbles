@@ -59,7 +59,17 @@ export default class App extends React.Component {
                 
                  <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
 
+                <Title />
+
                 
+
+
+                <Sidebar
+                 seconds={"8"}
+                 score={ 0 }>
+                </Sidebar>
+
+                {/* <StyledSidebar /> */}
         
             {this.state.newQuestions.map((item)=>{
                 return(
