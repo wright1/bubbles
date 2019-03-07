@@ -6,6 +6,7 @@ import "../../public/circle.css";
 import { Sidebar } from "./sidebar.js";
 import { Title } from "./title.js";
 import { Question } from "./question.js"
+import { Container, BubbleContainer } from "../styling/styles.js"
 
 
 export default class App extends React.Component {
@@ -55,7 +56,7 @@ export default class App extends React.Component {
 
 
         return (
-            <div>
+            <Container>
                 
                  <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
 
@@ -69,8 +70,8 @@ export default class App extends React.Component {
                  score={ 0 }>
                 </Sidebar>
 
-                {/* <StyledSidebar /> */}
-        
+                
+                <BubbleContainer>
             {this.state.newQuestions.map((item)=>{
                 return(
                 <Bubble               
@@ -78,9 +79,10 @@ export default class App extends React.Component {
                  onClick ={this.checkAnswer} />
             );
                 })}
+                </BubbleContainer>
             
 
-            </div>
+            </Container>
 
         )
     }

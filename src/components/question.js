@@ -1,10 +1,11 @@
 import React from "react";
+import { StyledQuestion } from "../styling/styles.js"
 
 export const Question = (props) =>{
 
     return(
-        <div>
+        <StyledQuestion>
             <h3>{ props.question}</h3>
-        </div>
+        </StyledQuestion>
     )
 }

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Container = styled.div`
+display: flex;
+`
+
 const StyledSidebar = styled.div`
 width: 20vw;
 border-right: solid 1px #C5BECE;
@@ -26,9 +30,31 @@ text-align: center;
 color: #9FA0C3;
 
 `
+const StyledQuestion = styled.div`
+width: 30vw;
+h3{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+}
+`;
+
+const BubbleContainer = styled.div`
+width: 70vw;
+display: flex;
+flex-wrap: wrap;
+div {
+    flex-direction: row;
+     
+}
+`
 
 export {
     StyledSidebar,
-    StyledTitle
+    StyledTitle,
+    StyledQuestion,
+    Container,
+    BubbleContainer
 
 }
