@@ -57,20 +57,12 @@ export default class App extends React.Component {
 
         return (
             <Container>
-                
-                 <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
-
-                <Title />
-
-                
-
 
                 <Sidebar
                  seconds={"8"}
                  score={ 0 }>
                 </Sidebar>
 
-                
                 <BubbleContainer>
             {this.state.newQuestions.map((item)=>{
                 return(
@@ -80,6 +72,14 @@ export default class App extends React.Component {
             );
                 })}
                 </BubbleContainer>
+                
+                 <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
+
+                <Title />
+
+
+                
+                
             
 
             </Container>
