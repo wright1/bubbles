@@ -13,7 +13,7 @@ export default class App extends React.Component {
 
     state = {
         quizData: {},
-        newQuestions: []
+        newQuestions: [],
     }
     checkAnswer = (the_answer) =>{
         console.log(the_answer)
@@ -63,17 +63,17 @@ export default class App extends React.Component {
                  score={ 0 }>
                 </Sidebar>
 
-                <Main>
+            <Main>
 
-                    <QuizHead>
-                      <Title />
-                      <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
-                   </QuizHead>
+                <QuizHead>
+                    <Title />
+                    <Question question={ this.state.newQuestions.length > 0 ? this.state.newQuestions[0].question : "loading!!!!"} />
+                </QuizHead>
 
                 <BubbleContainer>
-            {this.state.newQuestions.map((item)=>{
-                return(
-                <Bubble               
+                 {this.state.newQuestions.map((item)=>{
+                 return(
+                 <Bubble               
                  text ={item.answer} key={ item.id}
                  onClick ={this.checkAnswer} />
             );
@@ -81,7 +81,7 @@ export default class App extends React.Component {
                 </BubbleContainer>
                 
                 
-                </Main>
+            </Main>
 
 
                 
