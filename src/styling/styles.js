@@ -31,7 +31,9 @@ color: #9FA0C3;
 
 `
 const StyledQuestion = styled.div`
-width: 30vw;
+display:flex;
+text-align: center;
+
 h3{
     display: flex;
     text-align: center;
@@ -44,10 +46,22 @@ const BubbleContainer = styled.div`
 width: 70vw;
 display: flex;
 flex-wrap: wrap;
+margin-top: 3em;
 div {
     flex-direction: row;
      
 }
+`;
+
+const QuizHead = styled.div`
+display:flex;
+flex-direction: column;
+align-items: center;
+`;
+
+const Main = styled.div`
+display: flex;
+flex-direction: column;
 `
 
 export {
@@ -55,6 +69,8 @@ export {
     StyledTitle,
     StyledQuestion,
     Container,
-    BubbleContainer
+    BubbleContainer,
+    QuizHead,
+    Main
 
 }
