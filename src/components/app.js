@@ -24,16 +24,10 @@ export default class App extends React.Component {
     if (the_answer == this.state.newQuestions[0].answer) {
       let answer = the_answer;
 
-      console.log("you're right", this.refs[answer]);
       this.refs[answer].changeVisability(); // this updates the state within the bubble component causing it not to re-render
-      this.setState(
-        prevState => {
-          return { newQuestions: prevState.newQuestions.slice(1) };
-        },
-        () => {
-          console.log(this.state);
-        }
-      );
+      this.setState(prevState => {
+        return { newQuestions: prevState.newQuestions.slice(1) };
+      });
       console.log(
         this.refs,
         "this is the question array",
