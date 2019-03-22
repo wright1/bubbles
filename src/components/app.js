@@ -18,14 +18,13 @@ export default class App extends React.Component {
   state = {
     quizData: {},
     newQuestions: [],
-    colour: "#FBCFD0"
+    score: 0,
+    seconds: 90
   };
   checkAnswer = the_answer => {
     console.log(the_answer);
-
+    let answer = the_answer;
     if (the_answer == this.state.newQuestions[0].answer) {
-      let answer = the_answer;
-
       this.refs[answer].changeVisability(); // this updates the state within the bubble component causing it not to re-render
       this.setState(prevState => {
         return { newQuestions: prevState.newQuestions.slice(1) };
@@ -37,11 +36,7 @@ export default class App extends React.Component {
       );
     } else {
       console.log("try again");
-      this.setState({ colour: "#330000" }, () => {
-        setTimeout(() => {
-          this.setState({ colour: "#FBCFD0" });
-        }, 1000);
-      });
+      this.refs[answer].changeColour();
     }
   };
 
@@ -69,7 +64,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Container>
-        <Sidebar seconds={"8"} score={0} />
+        <Sidebar seconds={this.state.seconds} score={this.state.score} />
 
         <Main>
           <QuizHead>
@@ -90,7 +85,6 @@ export default class App extends React.Component {
                   text={item.answer}
                   ref={item.answer}
                   key={item.id}
-                  fill={this.state.colour}
                   onClick={this.checkAnswer}
                   id={item.id}
                 />
