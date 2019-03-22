@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { getQuizData } from "../utils/getData";
+import { shuffle } from "../utils/shuffle";
 import Bubble from "./circle";
 import "../../public/circle.css";
 import { Sidebar } from "./sidebar.js";
@@ -16,7 +17,8 @@ import {
 export default class App extends React.Component {
   state = {
     quizData: {},
-    newQuestions: []
+    newQuestions: [],
+    colour: "#FBCFD0"
   };
   checkAnswer = the_answer => {
     console.log(the_answer);
@@ -35,6 +37,11 @@ export default class App extends React.Component {
       );
     } else {
       console.log("try again");
+      this.setState({ colour: "#330000" }, () => {
+        setTimeout(() => {
+          this.setState({ colour: "#FBCFD0" });
+        }, 1000);
+      });
     }
   };
 
@@ -51,11 +58,8 @@ export default class App extends React.Component {
       return ele.answer.length == 3;
     });
 
-    for (let i = apiArr.length - 1; i > 1; i--) {
-      // shuffles the api array
-      const j = Math.floor(Math.random() * (i + 1));
-      [apiArr[i], apiArr[j]] = [apiArr[j], apiArr[i]];
-    }
+    shuffle(apiArr);
+
     this.setState({ quizData: apiArr });
     const questionArr = this.state.quizData.slice(0, 30); //selects the top 30 object in the api array
     this.setState({ newQuestions: questionArr });
@@ -86,6 +90,7 @@ export default class App extends React.Component {
                   text={item.answer}
                   ref={item.answer}
                   key={item.id}
+                  fill={this.state.colour}
                   onClick={this.checkAnswer}
                   id={item.id}
                 />
