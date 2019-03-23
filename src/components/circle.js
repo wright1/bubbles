@@ -3,15 +3,16 @@ import React from "react";
 export default class Bubble extends React.Component {
   state = {
     visable: true,
-    colour: "#FBCFD0"
+    colour: "#FBCFD0",
+    opacity: 0.3
   };
   changeVisability = () => {
     this.setState({ visable: false });
   };
   changeColour = () => {
-    this.setState({ colour: "#f90206" }, () => {
+    this.setState({ colour: "#f90206", opacity: 1 }, () => {
       setTimeout(() => {
-        this.setState({ colour: "#FBCFD0" });
+        this.setState({ colour: "#FBCFD0", opacity: 0.3 });
       }, 1000);
     });
   };
@@ -24,7 +25,7 @@ export default class Bubble extends React.Component {
             cx="50"
             cy="50"
             r="3em"
-            opacity={this.props.opacity}
+            opacity={this.state.opacity}
             fill={this.state.colour}
             ref={this.props.text}
             onClick={() => this.props.onClick(this.props.text)}
@@ -42,6 +43,5 @@ Bubble.defaultProps = {
   height: "6.5em",
   width: "6.5em",
   radius: "3em",
-  opacity: 0.3,
   text: "flo"
 };

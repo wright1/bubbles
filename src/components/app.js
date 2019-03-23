@@ -62,6 +62,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    const shuffledArr = shuffle(this.state.newQuestions.slice());
     return (
       <Container>
         <Sidebar seconds={this.state.seconds} score={this.state.score} />
@@ -79,7 +80,7 @@ export default class App extends React.Component {
           </QuizHead>
 
           <BubbleContainer>
-            {this.state.newQuestions.map(item => {
+            {shuffledArr.map(item => {
               return (
                 <Bubble
                   text={item.answer}
