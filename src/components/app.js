@@ -57,8 +57,10 @@ export default class App extends React.Component {
 
     this.setState({ quizData: apiArr });
     const questionArr = this.state.quizData.slice(0, 30); //selects the top 30 object in the api array
-    this.setState({ newQuestions: questionArr });
-    console.log(this.state.newQuestions[0].question);
+    this.setState({
+      newQuestions: [...questionArr, { question: "final", id: "finished" }]
+    });
+    console.log("watch this", this.state.newQuestions[30].question);
   };
 
   render() {
