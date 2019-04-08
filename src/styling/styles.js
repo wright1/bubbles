@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Bubble from "../components/circle";
 
 const Container = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const StyledQuestion = styled.div`
 `;
 
 const BubbleContainer = styled.div`
-  width: 70vw;
+  width: 80vw;
   display: flex;
   flex-wrap: wrap;
   margin-top: 3em;
@@ -60,6 +61,23 @@ const Main = styled.div`
   flex-direction: column;
 `;
 
+const Winner = styled.h1`
+  font-size: 2.5em;
+  text-align: center;
+  color: black;
+`;
+
+const StyledBubble = styled(Bubble)`
+  transition-property: transform;
+  transition-timing-function: 7000ms ease-in-out;
+  /* position: absolute; */
+  transform: translate3d(
+    ${props => props.xposition}px,
+    ${props => props.yposition}px,
+    0
+  );
+`;
+
 export {
   StyledSidebar,
   StyledTitle,
@@ -67,5 +85,7 @@ export {
   Container,
   BubbleContainer,
   QuizHead,
-  Main
+  Main,
+  Winner,
+  StyledBubble
 };

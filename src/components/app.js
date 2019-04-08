@@ -1,7 +1,11 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 import { getQuizData } from "../utils/getData";
+
 import { shuffle } from "../utils/shuffle";
+import { randomXPosition } from "../utils/randomXPosition";
+import { randomYPosition } from "../utils/randomYPosition";
+import { getRandomDuration } from "../utils/getRandomDuration";
 import Bubble from "./circle";
 import "../../public/circle.css";
 import { Sidebar } from "./sidebar.js";
@@ -11,7 +15,8 @@ import {
   Container,
   BubbleContainer,
   QuizHead,
-  Main
+  Main,
+  StyledBubble
 } from "../styling/styles.js";
 
 export default class App extends React.Component {
@@ -19,7 +24,9 @@ export default class App extends React.Component {
     quizData: {},
     newQuestions: [],
     score: 0,
-    seconds: 90
+    seconds: 90,
+    xposition: randomXPosition(),
+    yposition: randomYPosition()
   };
   checkAnswer = the_answer => {
     console.log(the_answer);
@@ -30,7 +37,7 @@ export default class App extends React.Component {
         return { newQuestions: prevState.newQuestions.slice(1) };
       });
       console.log(
-        this.refs,
+        this.refs[answer].style,
         "this is the question array",
         this.state.newQuestions
       );
@@ -40,11 +47,20 @@ export default class App extends React.Component {
     }
   };
 
+  componentWillMount() {
+    // console.log(document.querySelectorAll("StyledBubble"));
+  }
+
   componentDidMount() {
+    const knownRef = this.state.newQuestions[0];
     getQuizData().then(data => {
       this.setState({ quizData: data.clues });
       this.selectingNewQuestions();
-      console.log(this.state.newQuestions);
+
+      console.log(
+        window.getComputedStyle(this.refs.jam),
+        window.getComputedStyle(this.refs.jam).getPropertyValue("height")
+      );
     });
   }
   selectingNewQuestions = () => {
@@ -65,6 +81,9 @@ export default class App extends React.Component {
 
   render() {
     const shuffledArr = shuffle(this.state.newQuestions.slice());
+    // const xposition = randomXPosition();
+    const yposition = randomYPosition();
+
     return (
       <Container>
         <Sidebar seconds={this.state.seconds} score={this.state.score} />
@@ -81,15 +100,19 @@ export default class App extends React.Component {
             />
           </QuizHead>
 
-          <BubbleContainer>
+          <BubbleContainer ref="jam">
             {shuffledArr.map(item => {
               return (
-                <Bubble
+                <StyledBubble
+                  className={"circle_container"}
                   text={item.answer}
                   ref={item.answer}
                   key={item.id}
                   onClick={this.checkAnswer}
                   id={item.id}
+                  xposition={randomXPosition()}
+                  yposition={yposition}
+                  duration={getRandomDuration()}
                 />
               );
             })}

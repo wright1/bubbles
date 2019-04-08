@@ -19,7 +19,7 @@ export default class Bubble extends React.Component {
   render() {
     if (this.state.visable === false) return null;
     return (
-      <div className="circle_container">
+      <div className={this.props.className}>
         <svg width="6.5em" height="6.5em">
           <circle
             cx="50"
@@ -29,6 +29,9 @@ export default class Bubble extends React.Component {
             fill={this.state.colour}
             ref={this.props.text}
             onClick={() => this.props.onClick(this.props.text)}
+            xposition={this.props.xposition}
+            yposition={this.props.yposition}
+            duration={this.props.duration}
           />
           <text x="50%" y="50%" textAnchor="middle">
             {this.props.text}
